@@ -14,6 +14,16 @@
     <option value="scion-light">Light</option>
     <option value="scion-dark">Dark</option>
   </select>
+
+  <!-- Reset Perspective -->
+  <button (click)="workbenchService.resetPerspective()">Reset Perspective</button>
+
+  <!-- Switch Perspective -->
+  <select [ngModel]="workbenchService.activePerspective()?.id" (ngModelChange)="workbenchService.switchPerspective($event)">
+    @for (perspective of workbenchService.perspectives(); track perspective.id) {
+      <option [attr.value]="perspective.id">{{perspective.id}}</option>
+    }
+  </select>
 </header>
 
 <wb-workbench/>
