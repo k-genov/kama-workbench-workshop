@@ -4,6 +4,10 @@ export const workbenchConfig: WorkbenchConfig = {
 
   layout: factory =>
     factory.addPart(MAIN_AREA)
-      .navigatePart(MAIN_AREA, ['desktop']),
+      .addPart('projects', {relativeTo: MAIN_AREA, align: 'left', ratio: .25})
+      .addPart('notifications', {relativeTo: MAIN_AREA, align: 'right', ratio: .25})
+      .navigatePart(MAIN_AREA, ['desktop'])
+      .navigatePart('projects', ['projects'])
+      .navigatePart('notifications', ['notifications'])
 
 };
