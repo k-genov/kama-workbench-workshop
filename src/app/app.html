@@ -27,3 +27,8 @@
 </header>
 
 <wb-workbench/>
+
+<!-- Part Action contributed to part 'terminal' for opening a new terminal -->
+<ng-template wbPartAction align="start" [canMatch]="canMatchTerminal">
+  <button (click)="onTerminalOpen()" class="material">add</button>
+</ng-template>

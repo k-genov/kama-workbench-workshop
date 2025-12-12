@@ -1,9 +1,11 @@
 import {Component, inject} from '@angular/core';
-import {WorkbenchRouter} from '@scion/workbench';
+import {WorkbenchPartActionDirective, WorkbenchRouter} from '@scion/workbench';
 
 @Component({
   selector: 'app-projects',
-  imports: [],
+  imports: [
+    WorkbenchPartActionDirective,
+  ],
   templateUrl: './projects.html',
   styleUrl: './projects.scss',
 })
@@ -13,6 +15,10 @@ export default class Projects {
 
   protected onOpenProject(projectId: string): void {
     void this.router.navigate([`projects/${projectId}`]);
+  }
+
+  protected onFindProject(): void {
+    void this.router.navigate(['find/project'], {partId: 'find', target: 'blank'});
   }
 
 }
